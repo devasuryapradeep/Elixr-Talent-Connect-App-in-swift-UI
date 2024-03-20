@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A0C50812BA302B900079401 /* RoundedRectanglefield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C50802BA302B900079401 /* RoundedRectanglefield.swift */; };
-		5A0C50832BA302EF00079401 /* RoundedSecurefields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C50822BA302EF00079401 /* RoundedSecurefields.swift */; };
 		5A0C50892BA30D2900079401 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C50882BA30D2900079401 /* SignUpView.swift */; };
 		5A0C50C62BA3F92100079401 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C50C52BA3F92100079401 /* HomeModel.swift */; };
 		5A0C50CA2BA3FC4800079401 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C50C92BA3FC4800079401 /* APIManager.swift */; };
@@ -55,8 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A0C50802BA302B900079401 /* RoundedRectanglefield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectanglefield.swift; sourceTree = "<group>"; };
-		5A0C50822BA302EF00079401 /* RoundedSecurefields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSecurefields.swift; sourceTree = "<group>"; };
 		5A0C50882BA30D2900079401 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpView.swift; path = ElixrTalentConnectApp/SignIN/ViewModel/View/SignUpView.swift; sourceTree = SOURCE_ROOT; };
 		5A0C50C52BA3F92100079401 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		5A0C50C92BA3FC4800079401 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -266,9 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1689E62BA164550076D80D /* LogoImage.swift */,
-				5A0C50822BA302EF00079401 /* RoundedSecurefields.swift */,
 				5A4BA44A2B9983FB00C3C813 /* Label.swift */,
-				5A0C50802BA302B900079401 /* RoundedRectanglefield.swift */,
 				5A4BA44E2B99844D00C3C813 /* IconImage.swift */,
 				5A4BA44C2B99842300C3C813 /* TextField.swift */,
 				5A4BA4502B99D77000C3C813 /* PasswordField.swift */,
@@ -461,13 +455,11 @@
 				5A0C50CF2BA40C5100079401 /* HomeViewModel.swift in Sources */,
 				5A1689EF2BA1B23B0076D80D /* SignUpModel.swift in Sources */,
 				5AE6AF412B98D5F40090AD14 /* LoginModel.swift in Sources */,
-				5A0C50812BA302B900079401 /* RoundedRectanglefield.swift in Sources */,
 				5A0C50C62BA3F92100079401 /* HomeModel.swift in Sources */,
 				5A1689E92BA184BE0076D80D /* HomeView.swift in Sources */,
 				5A0C50892BA30D2900079401 /* SignUpView.swift in Sources */,
 				5AF53C7B2B9B0A9500DF576A /* StringExtensions.swift in Sources */,
 				5A4BA44B2B9983FB00C3C813 /* Label.swift in Sources */,
-				5A0C50832BA302EF00079401 /* RoundedSecurefields.swift in Sources */,
 				5A4BA44D2B99842300C3C813 /* TextField.swift in Sources */,
 				5AEC6AE12BA88F0D009097F8 /* jobModel.swift in Sources */,
 				5A1689F22BA1B5700076D80D /* SignUpViewModel.swift in Sources */,

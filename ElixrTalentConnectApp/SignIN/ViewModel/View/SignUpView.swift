@@ -154,6 +154,7 @@ struct signUpFields :View {
                             isHidden.toggle()
                         }label: {
                             Image(systemName: isHidden ? "eye" : "eye.slash")
+                                .foregroundStyle(Color.black)
                         }
                     }
                 }
