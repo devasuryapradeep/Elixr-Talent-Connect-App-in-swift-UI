@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor
+//@MainActor
 /// Viewmodel for the home View.
 class HomeViewModel:ObservableObject {
     
@@ -61,18 +61,45 @@ class HomeViewModel:ObservableObject {
         }
         return formatedString
     }
+    
+    func formatHelper(dateStringValue: String?)->String?{
+        if let dateStringValue = dateStringValue{
+            let dFInstance = DateFormatter()
+            dFInstance.dateFormat = "yyyy-MM-dd"
+            if let date = dFInstance.date(from: dateStringValue){
+                ///For day
+                let dayFormatter = DateFormatter()
+                dayFormatter.dateFormat = "d"
+                let day = dayFormatter.string(from: date)
+                ///For  month.
+                let monthFormatter = DateFormatter()
+                monthFormatter.dateFormat = "MM"
+                let month =  monthFormatter.string(from: date)
+                ///for year
+                let yearFormatter = DateFormatter()
+                yearFormatter.dateFormat = "yyyy"
+                let year =  yearFormatter.string(from: date)
+                return ("\(day)\(String(describing: SuffixAppender(DayInstance: day)))\(month)\(year)")
+            }
+        }
+        return dateStringValue
+    }
+        ///date from the API - 2024-01-10
+        /// expected output 2nd feb 2024, 1st feb 2024
+        func SuffixAppender(DayInstance:String)->String{
+            let dayString = Int(DayInstance) ?? 0
+            switch dayString {
+            case 1,21,31 :
+                return "st"
+            case 2,22 :
+                return "nd"
+            case 3,23:
+                return "rd"
+            default:
+                return "nth"
+            }
             
-            func formatHelper(dateStringValue: String?)->String?{
-                if let dateStringValue = dateStringValue{
-                    let dFInstance = DateFormatter()
-                    dFInstance.dateFormat = "yyyy-MM-dd"
-                    if let date = dFInstance.date(from: dateStringValue){
-                        //For day
-                        let dayFormatter = DateFormatter()
-                        dayFormatter.dateFormat = "d"
-                        let day = dayFormatter.string(from: date)                }
-                }
-                return dateStringValue
-
-                }
+        }
+        
+    
 }

@@ -33,7 +33,7 @@ struct HomeView: View {
                     HStack{
                         Spacer()
                         Text(value.title)
-                            .font(.title2)
+                            .font(.system(size: 20))
                             .bold()
                             .padding(.leading,-20)
                         Spacer()
@@ -44,22 +44,31 @@ struct HomeView: View {
                                 .foregroundStyle(Color.black)
                         }
                         Spacer()
-                        VStack{
+                        VStack(alignment: .trailing){
                             Text("Appllication Deadline")
-                            Text(value.deadlineDate)
+                            if let deadLineData  = viewModelInstance.dateFormatter(dateString: value.deadlineDate){
+                                Text(deadLineData)
+                            }
                         }
-                                .padding()
+                        .padding()
                         .foregroundStyle(Color.gray)
                         .background(Color("lightTheme"))
                         .clipShape(RoundedRectangle(cornerRadius: 30.0), style: FillStyle())
                         Spacer()
                     }
+                    Spacer()
                     Text(value.location)
                         .padding(.leading,20)
                     Text(value.description)
                         .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     Spacer()
                 })
+                .padding()
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10.0, height: 25.0)))
+                .frame(width: 330, height: 300, alignment: .center)
+                .background {
+                    Color.cyan
+                }
             }
             .searchable(text:$textToSearch,prompt: "Enter the job title here.")
             . toolbar{
@@ -86,9 +95,11 @@ struct HomeView: View {
         })
     }
     
-    func dateFormatterHelper(with dataItem:Jobs){
-//        guard let formattedDate = 
-        
+    func dateFormatterHelper(with dataItem:Jobs) -> String?{
+        guard let formattedDate = viewModelInstance.dateFormatter(dateString: dataItem.deadlineDate) else {
+            return nil
+        }
+        return formattedDate
     }
 }
 #Preview {
