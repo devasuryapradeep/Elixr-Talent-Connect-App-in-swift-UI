@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 /// Network errors
 enum NetworkErrors :Error {
     case invaidURL

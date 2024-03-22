@@ -7,14 +7,17 @@
 
 import Foundation
 
+@MainActor
+/// Viewmodel for the home View.
 class HomeViewModel:ObservableObject {
+    
     /// Published properties
     @Published var alertValue :Bool = false
     @Published var jobArray :[Jobs] = []
     
-    //APIManager.shared.getData(endPoint: .getJobs){ [weak self] (response:Result<JobResponse,NetworkErrors>) in
+    /// Function to perform API  fetch from the API.
     func fetchData() {
-        APIManager.shared.APIcall( endPoint: .getJobList) { [weak self] (response: Result<JobResponse?, NetworkErrors>)in
+        APIManager.shared.APIcall(endPoint: .getJobList){ [weak self] (response: Result<JobResponse?, NetworkErrors>)in
             guard let self = self else {
                 return
             }
@@ -23,7 +26,6 @@ class HomeViewModel:ObservableObject {
                 DispatchQueue.main.async {
                     if let jobs = result?.jobs {
                         self.jobArray = jobs
-                        print("Arraycount-->\(self.jobArray.count)")
                     }
                     print("Success")
                 }
@@ -35,13 +37,16 @@ class HomeViewModel:ObservableObject {
             }
         }
     }
-
+    
     /// Function to perform post Method.
     func postJobs() {
         let encodedData = try? JSONEncoder().encode(postDataInstance)
-        APIManager.shared.APIcall(body: encodedData, endPoint: .postJob) { (response:Result<JobResponse?, NetworkErrors> ) in
+        APIManager.shared.APIcall(body: encodedData, endPoint: .postJob) { [weak self] (response:Result<JobResponse?, NetworkErrors>) in
+            guard self != nil else {
+                return
+            }
             switch response {
-            case .success(let result) :
+            case .success(_) :
                 print("job submitted")
                 break
             case .failure(let errorMessage):
@@ -49,4 +54,25 @@ class HomeViewModel:ObservableObject {
             }
         }
     }
+    
+    func dateFormatter(dateString:String?) ->String? {
+        guard let dateString = dateString, let formatedString = formatHelper(dateStringValue: dateString) else{
+            return nil
+        }
+        return formatedString
+    }
+            
+            func formatHelper(dateStringValue: String?)->String?{
+                if let dateStringValue = dateStringValue{
+                    let dFInstance = DateFormatter()
+                    dFInstance.dateFormat = "yyyy-MM-dd"
+                    if let date = dFInstance.date(from: dateStringValue){
+                        //For day
+                        let dayFormatter = DateFormatter()
+                        dayFormatter.dateFormat = "d"
+                        let day = dayFormatter.string(from: date)                }
+                }
+                return dateStringValue
+
+                }
 }
