@@ -29,7 +29,7 @@ class HomeViewModel:ObservableObject {
                     if let jobs = result?.jobs {
                         self.jobArray = jobs
                     }
-                    print("Success")
+                          print("Success")
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
