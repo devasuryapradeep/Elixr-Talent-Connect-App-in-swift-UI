@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserInteractiveArea :View {
     let jobIDInfo:Jobs
+    @State var isFavourite:Bool = false
     @StateObject var vm :jobDetailsVm = jobDetailsVm()
     var body: some View {
         VStack(alignment: .center, content: {
@@ -30,11 +31,10 @@ struct UserInteractiveArea :View {
                 Text("Save for later")
                     .font(.system(size: 13.0))
                 Button {
-                    vm.actionOnCheck(wishListVariable: jobIDInfo.id)
-                    vm.checkifValuePresent(wishListVariable: jobIDInfo.id)
+                    isFavourite.toggle()
+                vm.checkifValuePresent(wishListVariable: jobIDInfo.id, isFavorite: isFavourite)
                 } label: {
-                    vm.actionOnCheck(wishListVariable: jobIDInfo.id) ?
-                    Image("heartButton") : Image("heart")
+                    Image(isFavourite ? "heartButton":"heart")
                 }
             }
         })
