@@ -10,14 +10,14 @@ import SwiftUI
 struct MyJobs: View {
     @StateObject var myJobViewModelInstance = MyjobsVM()
     var body: some View {
-        
-        List(myJobViewModelInstance.dataSource,id: \.self) { value  in
-            Text(value.title)
+        VStack {
+            Text("Applied jobs")
+                .font(.title)
+                .bold()
+            List(myJobViewModelInstance.getDataFromSafe()) { value  in
+                Text(value.title)
+            }
         }
-        .onAppear{
-            myJobViewModelInstance.getDataFromSafe()
-        }
-        
     }
 }
 

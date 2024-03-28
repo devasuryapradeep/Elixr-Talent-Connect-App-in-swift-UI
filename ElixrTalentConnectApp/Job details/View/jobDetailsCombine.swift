@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+/// View whoch gives a detailed description  to a details for the job.
 struct jobDetailsCombine: View {
     
     /// StateObject  &  constant decalrations.
     @Binding var jobInstance :Jobs
     @StateObject var jobDisplayViewModel :JobDisplayViewModel = JobDisplayViewModel()
-  //  @StateObject var jbDetailsVm :jobDetailsVm = jobDetailsVm()
-    
+    @StateObject var jbDetailsVm :jobDetailsVm = jobDetailsVm()
+    @State var duplicateEntry :Bool = false
     var body: some View {
         ScrollView{
             VStack{
@@ -48,11 +49,11 @@ struct jobDetailsCombine: View {
                     Spacer()
                     
                 })
-                
                 VStack(alignment: .center, content: {
                     Button{
-                      //  jbDetailsVm.applyButtonPressed(jobInstance)
+                        jbDetailsVm.applyButtonPressed(jobInstance)
                         print("jobApplied")
+                        
                     } label: {
                         RoundedRectangle(cornerRadius: 10.0)
                             .fill(Color.elixrOrange)
@@ -64,6 +65,32 @@ struct jobDetailsCombine: View {
                                     .font(.system(size: 15.0))
                             }
                     }
+                    .alert(isPresented: Binding<Bool>(
+                        get: { jbDetailsVm.alertOnDuplicateEntry },
+                        set: { jbDetailsVm.alertOnDuplicateEntry = $0 }
+                    )) {
+                        Alert(title: Text("Alert"), message: Text("You have already applied for this same job."), dismissButton: .default(Text("OK")))
+                    }
+                    .alert(isPresented: Binding<Bool>(
+                        get: { jbDetailsVm.alertOnSuccessfulEntry },
+                        set: { jbDetailsVm.alertOnSuccessfulEntry = $0 }
+                    )) {
+                        Alert(title: Text("Alert"), message: Text("Job application Successful."), dismissButton: .default(Text("OK")))
+                    }
+                    
+                    
+                    
+//                    //alert on duplciate enrty.
+//                    .alert(isPresented: $duplicateEntry, content: {
+//                        Alert(title: Text("Alert")
+//                            .bold(), message: Text("You have already applied for this same job .")
+//                            .bold())
+//                    })
+//                    //alert on Successfull entry.
+//                    .alert(isPresented: $jbDetailsVm.alertOnSuccessfulEntry, content: {
+//                        Alert(title: Text("Alert"),message: Text("Job application Successful."),dismissButton: .default(Text("OK")))
+//                    })
+                    
                     HStack{
                         Text("Save for later")
                             .font(.system(size: 13.0))
@@ -72,7 +99,7 @@ struct jobDetailsCombine: View {
                             print("jobinstance --> \(jobInstance.isFavouriteBool)")
                             jobDisplayViewModel.fetchData()
                         } label: {
-                            jobInstance.isFavouriteBool ? 
+                            jobInstance.isFavouriteBool ?
                             Image( "heartButton") : Image(systemName: "heart")
                         }
                     }
@@ -82,8 +109,8 @@ struct jobDetailsCombine: View {
     }
 }
 
+/// Struct used inside jobHeaderview - reused to create two fields .
 struct DetailsRow: View {
-    
     let jobInfo :String
     let textValue :String
     var body: some View {

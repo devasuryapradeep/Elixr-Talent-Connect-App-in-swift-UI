@@ -11,18 +11,14 @@ import Foundation
 class MyjobsVM :ObservableObject{
     
     @Published var dataSource :[Jobs] = []
-    
+
     func getDataFromSafe() -> [Jobs]{
-        guard   let savedArrayData =  UserDefaults.standard.data(forKey: .savedJobsID) else{
+        guard let savedJobData = UserDefaults.standard.data(forKey: .savedJobsID),
+              let savedjobs = try? JSONDecoder().decode([Jobs].self, from: savedJobData) else {
+            print( "no jobs")
             return []
         }
-        do{
-            self.dataSource = try JSONDecoder().decode([Jobs].self, from: savedArrayData)
-        }
-        catch {
-            print(error)
-        }
-        print("datasource---->\(dataSource)")
-        return dataSource
+        print("jobs details=----->\(savedjobs)")
+        return savedjobs
     }
 }
