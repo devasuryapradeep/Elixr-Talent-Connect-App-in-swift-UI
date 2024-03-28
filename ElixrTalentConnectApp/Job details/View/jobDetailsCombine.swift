@@ -17,43 +17,44 @@ struct jobDetailsCombine: View {
     @State var duplicateEntry :Bool = false
     var body: some View {
         ScrollView{
-            VStack{
-                Spacer()
                 jobDetailsHeaderview(jobDetails: jobInstance)
                     .padding()
-                Spacer()
-                VStack(alignment: .leading, content: {
-                    Section(header: Text("Description")
-                        .foregroundStyle(Color.elixrBlue)
-                        .bold()
-                    )
-                    {
-                        Text(jobInstance.description)
-                            .frame(width: 350)
-                    }
-                    Spacer()
-                    Section(header: Text("Key Responsibilities")
-                        .foregroundStyle(Color.elixrBlue)
-                        .bold()
-                    ) {
-                        Text(jobInstance.responsibilities)
-                    }
-                    Spacer()
-                    Section(header: Text("Qualifications")
-                        .foregroundStyle(Color.elixrBlue)
-                        .bold()
-                    )
-                    {
-                        Text(jobInstance.requirements)
-                    }
-                    Spacer()
-                    
+            VStack(alignment: .leading, content: {
+                Section(header: Text("Description")
+                    .foregroundStyle(Color.elixrBlue)
+                    .padding([.leading,.top], 28)
+                    .bold())
+                {
+                    Text(jobInstance.description)
+                        .font(.system(size: 14.0))
+                        .padding([.leading,.trailing],30)
+                }
+                Section(header: Text("Key Responsibilities")
+                    .foregroundStyle(Color.elixrBlue)
+                    .padding([.leading,.top], 28)
+                    .bold()
+                ) {
+                    Text(jobInstance.responsibilities)
+                        .font(.system(size: 14.0))
+                        .padding([.leading,.trailing],30)
+                }
+                Group{
+                Section(header: Text("Qualifications")
+                    .foregroundStyle(Color.elixrBlue)
+                    .padding([.leading,.top], 28)
+                    .bold()
+                )
+                {
+                    Text(jobInstance.requirements)
+                        .font(.system(size: 14.0))
+                        .padding([.leading,.trailing],30)
+                }
+            }
                 })
                 VStack(alignment: .center, content: {
                     Button{
                         jbDetailsVm.applyButtonPressed(jobInstance)
                         print("jobApplied")
-                        
                     } label: {
                         RoundedRectangle(cornerRadius: 10.0)
                             .fill(Color.elixrOrange)
@@ -77,20 +78,7 @@ struct jobDetailsCombine: View {
                     )) {
                         Alert(title: Text("Alert"), message: Text("Job application Successful."), dismissButton: .default(Text("OK")))
                     }
-                    
-                    
-                    
-//                    //alert on duplciate enrty.
-//                    .alert(isPresented: $duplicateEntry, content: {
-//                        Alert(title: Text("Alert")
-//                            .bold(), message: Text("You have already applied for this same job .")
-//                            .bold())
-//                    })
-//                    //alert on Successfull entry.
-//                    .alert(isPresented: $jbDetailsVm.alertOnSuccessfulEntry, content: {
-//                        Alert(title: Text("Alert"),message: Text("Job application Successful."),dismissButton: .default(Text("OK")))
-//                    })
-                    
+                    Spacer()
                     HStack{
                         Text("Save for later")
                             .font(.system(size: 13.0))
@@ -104,8 +92,25 @@ struct jobDetailsCombine: View {
                         }
                     }
                 })
-            }
+                .padding(.top,80)
+            Spacer()
         }
+//        .navigationBarBackButtonHidden()
+////        .toolbar(content: {
+////            ToolbarItem (placement: .topBarLeading, content: {
+////                Button {
+////                    print("dash button pressed.")
+////                } label: {
+////                     Image(systemName: "list.dash")
+////                        .foregroundStyle(Color.black)
+////                        .bold()
+////                }
+////            })
+////            ToolbarItem {
+////              LogoImage(logoName: "logo 1", width: 65, height: 65)
+////                    .padding(.trailing,143)
+////            }
+////        })
     }
 }
 
@@ -123,3 +128,18 @@ struct DetailsRow: View {
         })
     }
 }
+//    .toolbar {
+//        ToolbarItem(placement: .navigationBarLeading) {
+//            Button{
+//                print("DashBoard is opened.")
+//            }label: {
+//                Image(systemName: "list.dash")
+//                    .foregroundStyle(Color.black)
+//                    .bold()
+//            }
+//        }
+//        ToolbarItem(placement: .navigationBarTrailing) {
+//            LogoImage(logoName: "logo 1", width: 70, height: 70)
+//                .padding(.trailing,143)
+//        }
+//    }
