@@ -367,5 +367,53 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00D81D3D-8B8A-43FB-9C2D-CA055C84E1FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElixrTalentConnectApp/MyJobs/ViewModel/MyjobsVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "MyjobsVM"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "00D81D3D-8B8A-43FB-9C2D-CA055C84E1FB - 782e9d600b7e0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ElixrTalentConnectApp.MyjobsVM.switchDataWithSearch(Swift.String) -&gt; Swift.Array&lt;ElixrTalentConnectApp.Jobs&gt;"
+                  moduleName = "ElixrTalentConnectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/FInal%20project/ElixrTalentConnectApp/MyJobs/ViewModel/MyjobsVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "00D81D3D-8B8A-43FB-9C2D-CA055C84E1FB - 782e9d600b7e0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ElixrTalentConnectApp.MyjobsVM.switchDataWithSearch(Swift.String) -&gt; Swift.Array&lt;ElixrTalentConnectApp.Jobs&gt;"
+                  moduleName = "ElixrTalentConnectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/FInal%20project/ElixrTalentConnectApp/MyJobs/ViewModel/MyjobsVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -9,18 +9,76 @@ import SwiftUI
 
 struct MyJobs: View {
     @StateObject var myJobViewModelInstance = MyjobsVM()
+    @State var textToSearch:String = ""
     var body: some View {
         VStack {
             Text("Applied jobs")
                 .font(.title)
                 .bold()
-            List(myJobViewModelInstance.getDataFromSafe()) { value  in
-                Text(value.title)
+                .padding(.leading,-130)
+//            Textfields(bindingVariable: $textToSearch, placeholder: "search here.")
+            List( myJobViewModelInstance.getDataFromSafe()) { value  in
+                RoundedRectangle(cornerRadius: 10.0)
+                    .stroke(style: StrokeStyle())
+                    .frame(width: 340,height: 200)
+                    .overlay {
+                        VStack(alignment: .center) {
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Text(value.title)
+                                    .lineLimit(1)
+                                    .font(.callout)
+                                    .bold()
+                                    .foregroundStyle(Color.elixrBlue)
+                                    .padding(.leading,2)
+                                Spacer()
+                                VStack  {
+                                    Text(value.status)
+                                        .foregroundStyle(Color.white)
+                                        .font(.system(size: 12.0))
+                                        .bold()
+                                }
+                                .padding(.all)
+                                .background(Color(colorSwitcher(value.status)))
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                .frame(width :150, height: 40)
+                                .padding(.top,10)
+                            }
+                            .padding(.top,-10)
+                            Spacer()
+                            Text(value.location)
+                                .font(.system(size: 13.0))
+                                .foregroundStyle(Color.gray)
+                                .bold()
+                                .padding(.horizontal,-100)
+                            Spacer()
+                            Text(value.description)
+                                .lineLimit(10)
+                                .foregroundStyle(Color.elixrBlue)
+                                .font(.system(size: 10.0))
+                                .padding()
+                            Spacer()
+                        }
+                    }
             }
+            .searchable(text:$textToSearch,prompt: Text("Type in the job title here"))
+        }
+    }
+    
+    /// Decides the background color  status view.
+    /// - Parameter varaible: Contains data from the response which is of type string.
+    /// - Returns: Returns a specific color based on the response.
+    func colorSwitcher(_ responseString :String)->Color {
+        if responseString ==  "Scheduled" {
+            return Color.green
+        } else if responseString == "Rejected"  {
+            return Color.red
+        } else {
+            return Color.gray
         }
     }
 }
-
 #Preview {
     MyJobs()
 }
