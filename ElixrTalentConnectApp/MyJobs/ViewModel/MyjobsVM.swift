@@ -10,7 +10,7 @@ import Foundation
 
 class MyjobsVM :ObservableObject{
     
-  //  @Published var dataSource :[Jobs] = []
+    //@Published var dataSource :[Jobs] = []
     
     /// This function get data from the userdefaults by decodimg the from a particular key.
     /// - Returns: Returns an empty array if there is no presaved jobs in the user defalut  or returns an array of job array.
@@ -24,13 +24,18 @@ class MyjobsVM :ObservableObject{
         return savedjobs
     }
     
-//    func switchDataWithSearch (_ searchTerm :String) ->[Jobs] {
-//        let  dataSource = getDataFromSafe()
-//        guard !searchTerm.isEmpty else{
-//            return dataSource.filter({ details in
-//                searchTerm.split(separator: " ").allSatisfy { Substring in
-//                    details.title.lowercased().contains(Substring.lowercased())}})
-//            }
-//        return dataSource
-//    }    
+    /// Search functionality in the my jobs view.
+    /// - Parameter searchTerm: Is of type string that is given as the state variable 
+    /// - Returns: <#description#>
+    func switchDataWithSearch (_ searchTerm :String) ->[Jobs] {
+        let  dataSource = getDataFromSafe()
+        guard searchTerm.isEmpty else {
+            return dataSource.filter({ details in
+                searchTerm.split(separator: " ").allSatisfy { Substring in
+                    details.title.lowercased().contains(Substring.lowercased())
+                }
+            })      
+        }
+        return dataSource
+    }
 }
