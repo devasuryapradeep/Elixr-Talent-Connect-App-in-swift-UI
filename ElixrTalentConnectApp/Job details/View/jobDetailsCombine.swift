@@ -96,6 +96,7 @@ struct jobDetailsCombine: View {
                 .padding(.top,80)
             Spacer()
         }
+        .environmentObject(jbDetailsVm)
     }
 }
 

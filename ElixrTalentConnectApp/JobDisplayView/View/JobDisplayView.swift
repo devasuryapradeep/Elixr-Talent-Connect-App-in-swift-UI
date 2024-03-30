@@ -132,7 +132,7 @@ struct JobDisplayView: View {
     }
 }
 
-#Preview {
-    JobDisplayView()
-}
+//#Preview {
+//    JobDisplayView()
+//}
 

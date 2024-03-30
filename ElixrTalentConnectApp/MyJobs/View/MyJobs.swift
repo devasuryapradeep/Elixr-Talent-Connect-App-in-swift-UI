@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyJobs: View {
+    @EnvironmentObject var vm :JobDisplayViewModel
     @StateObject var myJobViewModelInstance = MyjobsVM()
     @State var textToSearch:String = ""
     var body: some View {
@@ -32,7 +33,6 @@ struct MyJobs: View {
                                         .bold()
                                         .foregroundStyle(Color.elixrBlue)
                                         .padding(.leading,2)
-                                    Spacer()
                                     VStack  {
                                         Text(value.status)
                                             .foregroundStyle(Color.white)
