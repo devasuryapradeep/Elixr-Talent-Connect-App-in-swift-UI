@@ -15,6 +15,7 @@ struct jobDetailsCombine: View {
     @ObservedObject var jobDisplayViewModel :JobDisplayViewModel 
     @StateObject var jbDetailsVm :jobDetailsVm = jobDetailsVm()
     @State var duplicateEntry :Bool = false
+    
     var body: some View {
         ScrollView{
                 jobDetailsHeaderview(jobDetails: jobInstance)
