@@ -17,7 +17,6 @@ class JobDisplayViewModel:ObservableObject {
     @Published var jobArray :[Jobs] = []
     let modelInstance = JobResponse(jobs: [Jobs]())
     
-    
     /// Function to perform API  fetch from the API.
     func fetchData() {
         NetworkManger.shared.APICaller(from: .getJobs) { [weak self] (response : Result<JobResponse?, networkErrors>)  in
@@ -37,14 +36,13 @@ class JobDisplayViewModel:ObservableObject {
         }
     }
     
-    
-    
+    /// Function to perform HTTP Post method .
     func postJobs(){
         let encodedData = try? JSONEncoder().encode(postDataInstance)
         NetworkManger.shared.APICaller(from: .postJobs, body: encodedData) { [weak self] (response :Result<JobResponse, networkErrors>) in
             guard self != nil else{
                 return
-        }
+            }
             switch response {
             case .success(_):
                 print("job Submitted")

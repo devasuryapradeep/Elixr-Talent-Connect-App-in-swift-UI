@@ -95,6 +95,7 @@ struct MyJobs: View {
         }
     }
 }
-#Preview {
-    MyJobs()
-}
+
+//#Preview {
+//    MyJobs()
+//}

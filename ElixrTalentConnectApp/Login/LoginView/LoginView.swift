@@ -129,9 +129,6 @@ struct LoginView: View {
             .alert(isPresented: $alertVariable, content: {
                 Alert(title: Text("Alert"),message: Text(message),dismissButton: .cancel())
             })
-//            .navigationDestination(isPresented: $isValid, destination: {
-//                MainTabbarView()
-//            })
             .padding()
     }
     

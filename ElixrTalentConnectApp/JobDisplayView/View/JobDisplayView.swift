@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import SideMenu
-
 
 /// View for homeView.
 struct JobDisplayView: View {
@@ -18,7 +16,7 @@ struct JobDisplayView: View {
     @State var isPresented :Bool = false
     @State private var isMenuOpen = false
     @State  private var selectedJob :Jobs = Jobs(id: "", title: "", department: "", postedDate: "", deadlineDate: "", description: "", responsibilities: "", requirements: "", location: "", salary: "", status: "" )
-    
+            
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,7 +24,7 @@ struct JobDisplayView: View {
                 jobRow
                     .searchable(text: $textToSearch, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter the job title here.")
                     .navigationDestination(isPresented: $isPresented) {
-                        jobDetailsCombine(jobInstance: $selectedJob)
+                        jobDetailsCombine(jobInstance: $selectedJob, jobDisplayViewModel:  viewModelInstance)
                     }
             }
             .toolbar {
@@ -124,7 +122,7 @@ struct JobDisplayView: View {
                             Spacer()
                         }
                     }
-                    .background(Color.elixrlightGray)
+                    .background(Color.secondary)
             }
             .onTapGesture {
                 isPresented.toggle()
@@ -133,8 +131,6 @@ struct JobDisplayView: View {
         }
     }
 }
-
-
 
 #Preview {
     JobDisplayView()

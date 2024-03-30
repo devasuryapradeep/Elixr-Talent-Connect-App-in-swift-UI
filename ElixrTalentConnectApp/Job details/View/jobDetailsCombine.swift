@@ -12,7 +12,7 @@ struct jobDetailsCombine: View {
     
     /// StateObject  &  constant decalrations.
     @Binding var jobInstance :Jobs
-    @StateObject var jobDisplayViewModel :JobDisplayViewModel = JobDisplayViewModel()
+    @ObservedObject var jobDisplayViewModel :JobDisplayViewModel 
     @StateObject var jbDetailsVm :jobDetailsVm = jobDetailsVm()
     @State var duplicateEntry :Bool = false
     var body: some View {
