@@ -16,7 +16,8 @@ struct JobDisplayView: View {
     @State var isPresented :Bool = false
     @State private var isMenuOpen = false
     @State  private var selectedJob :Jobs = Jobs(id: "", title: "", department: "", postedDate: "", deadlineDate: "", description: "", responsibilities: "", requirements: "", location: "", salary: "", status: "" )
-            
+         
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -122,7 +123,7 @@ struct JobDisplayView: View {
                             Spacer()
                         }
                     }
-                    .background(Color.secondary)
+                    .background(Color.elixrlightGray)
             }
             .onTapGesture {
                 isPresented.toggle()

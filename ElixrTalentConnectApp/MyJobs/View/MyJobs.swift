@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+/// View for MyJobs .
 struct MyJobs: View {
-    @EnvironmentObject var vm :JobDisplayViewModel
+    
+    /// Declarations of environmentObject and State varibles.
     @StateObject var myJobViewModelInstance = MyjobsVM()
     @State var textToSearch:String = ""
+    
     var body: some View {
         NavigationStack{
             VStack {
@@ -26,7 +29,7 @@ struct MyJobs: View {
                             VStack(alignment: .center) {
                                 Spacer()
                                 HStack{
-                                    Spacer()
+//                                    Spacer()
                                     Text(value.title)
                                         .lineLimit(1)
                                         .font(.callout)

@@ -13,6 +13,7 @@ class jobDetailsVm:ObservableObject{
     /// Published Propeerty decalartions to trigger alerts in the View.
     @Published var alertOnDuplicateEntry :Bool = false
     @Published var alertOnSuccessfulEntry :Bool = false
+    @Published var dataSource :[Jobs] = []
     
     /// favouriteButtonAction - Is a function to set the favourite button action which
     /// - Parameter wishlistVariable: this is the jobID.
