@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// View for homeView.
+/// View for JobDisplayView.
 struct JobDisplayView: View {
     
     /// Declarationof state property and State object instance.
@@ -16,8 +16,7 @@ struct JobDisplayView: View {
     @State var isPresented :Bool = false
     @State private var isMenuOpen = false
     @State  private var selectedJob :Jobs = Jobs(id: "", title: "", department: "", postedDate: "", deadlineDate: "", description: "", responsibilities: "", requirements: "", location: "", salary: "", status: "" )
-         
-    
+        
     var body: some View {
         NavigationStack {
             VStack {
@@ -25,7 +24,7 @@ struct JobDisplayView: View {
                 jobRow
                     .searchable(text: $textToSearch, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter the job title here.")
                     .navigationDestination(isPresented: $isPresented) {
-                        jobDetailsCombine(jobInstance: $selectedJob, jobDisplayViewModel:  viewModelInstance)
+                        JobDetailsView(jobInstance: $selectedJob, jobDisplayViewModel:  viewModelInstance)
                     }
             }
             .toolbar {
@@ -65,7 +64,7 @@ struct JobDisplayView: View {
     
     /// List inside job list view.
     private var jobRow :some View {
-        List(viewModelInstance.fetchData(textToSearch)) { value in
+        List(viewModelInstance.searchFunctionality(textToSearch)) { value in
             VStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(style: StrokeStyle())

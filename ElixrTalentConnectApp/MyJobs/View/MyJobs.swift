@@ -78,8 +78,8 @@ struct MyJobs: View {
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    LogoImage(logoName: "logo 1", width: 65, height: 65)
-                        .padding(.trailing,160)
+                    LogoImage(logoName: "logo 1", width: 70, height: 70)
+                        .padding(.trailing,143)
                 }
             }
         }
