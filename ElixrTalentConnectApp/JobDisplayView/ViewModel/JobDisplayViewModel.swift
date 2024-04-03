@@ -115,7 +115,6 @@ class JobDisplayViewModel:ObservableObject {
         UserDefaults.standard.set(!isFavourite, forKey: jobID)
     }
     
-    
     /// Search Functionality -Is a function to  perform search over fetched jobs by using job title and location.
     /// - Parameter searchTerm: Searchterm is the container to represent user input from the view, based on this value searching funcitonality is performed.
     /// - Returns: searchFunctionality returns an array of jobs with job title or location mentioned in the search bar.

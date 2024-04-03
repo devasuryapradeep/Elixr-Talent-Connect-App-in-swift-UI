@@ -24,7 +24,7 @@ struct SignUpView: View {
     @State var isPresented : Bool = false
     
     var body: some View {
-        NavigationStack{
+       // NavigationStack{
             VStack{
                 logo
                 backButton
@@ -42,7 +42,7 @@ struct SignUpView: View {
                 Spacer()
                     .navigationBarBackButtonHidden()
             }
-        }
+       // }
         
     }
     /// Contains the logo.

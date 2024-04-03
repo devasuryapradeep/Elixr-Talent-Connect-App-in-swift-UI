@@ -15,7 +15,7 @@ struct MyJobs: View {
     @State var textToSearch:String = ""
     
     var body: some View {
-        NavigationStack{
+        NavigationView  {
             VStack {
                 Text("Applied jobs")
                     .font(.title)
@@ -29,7 +29,7 @@ struct MyJobs: View {
                             VStack(alignment: .center) {
                                 Spacer()
                                 HStack{
-//                                    Spacer()
+                                    //                                    Spacer()
                                     Text(value.title)
                                         .lineLimit(1)
                                         .font(.callout)
@@ -66,22 +66,23 @@ struct MyJobs: View {
                         }
                 }
             }
-            .searchable(text:$textToSearch,prompt: Text("Type in the job title here"))
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "list.dash")
-                            .foregroundStyle(Color.black)
-                            .bold()
-                    }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    LogoImage(logoName: "logo 1", width: 70, height: 70)
-                        .padding(.trailing,143)
-                }
-            }
+                     .searchable(text:$textToSearch,prompt: Text("Type in the job title here"))
+            //            .toolbar {
+            //                ToolbarItem(placement: .topBarLeading) {
+            //                    Button {
+            //
+            //                    } label: {
+            //                        Image(systemName: "list.dash")
+            //                            .foregroundStyle(Color.black)
+            //                            .bold()
+            //                    }
+            //                }
+            //                ToolbarItem(placement: .topBarTrailing) {
+            //                    LogoImage(logoName: "logo 1", width: 70, height: 70)
+            //                        .padding(.trailing,143)
+            //                }
+            //            }
+            // }
         }
     }
     

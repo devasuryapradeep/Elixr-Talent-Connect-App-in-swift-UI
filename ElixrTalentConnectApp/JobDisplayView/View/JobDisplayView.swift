@@ -4,21 +4,21 @@
 //
 //  Created by Devasurya on 13/03/24.
 //
-
+//import SSSwiftUISideMenu
 import SwiftUI
 
 /// View for JobDisplayView.
 struct JobDisplayView: View {
     
-    /// Declarationof state property and State object instance.
+    /// Declaration of state property and State object instance.
     @StateObject var viewModelInstance =  JobDisplayViewModel()
     @State var textToSearch: String = ""
     @State var isPresented :Bool = false
-    @State private var isMenuOpen = false
     @State  private var selectedJob :Jobs = Jobs(id: "", title: "", department: "", postedDate: "", deadlineDate: "", description: "", responsibilities: "", requirements: "", location: "", salary: "", status: "" )
-        
+
+    
     var body: some View {
-        NavigationStack {
+        NavigationView(content: {
             VStack {
                 viewHeading
                 jobRow
@@ -26,21 +26,6 @@ struct JobDisplayView: View {
                     .navigationDestination(isPresented: $isPresented) {
                         JobDetailsView(jobInstance: $selectedJob, jobDisplayViewModel:  viewModelInstance)
                     }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button{
-                        print("DashBoard is opened.")
-                    }label: {
-                        Image(systemName: "list.dash")
-                            .foregroundStyle(Color.black)
-                            .bold()
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    LogoImage(logoName: "logo 1", width: 70, height: 70)
-                        .padding(.trailing,143)
-                }
             }
             .navigationBarBackButtonHidden()
             .onAppear {
@@ -50,9 +35,8 @@ struct JobDisplayView: View {
                 Alert(title: Text("Alert"), message: Text("Sorry, can't connect at the moment. Please try again.")
                     .bold())
             }
-        }
+        })
     }
-    
     /// Heading view for the jobList view.
     private var viewHeading :some View {
         Text("Recomented Jobs")
@@ -132,7 +116,7 @@ struct JobDisplayView: View {
     }
 }
 
-//#Preview {
-//    JobDisplayView()
-//}
+#Preview {
+    JobDisplayView()
+}
 

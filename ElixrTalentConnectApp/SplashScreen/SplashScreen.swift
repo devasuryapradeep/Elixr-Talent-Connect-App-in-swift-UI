@@ -11,7 +11,6 @@ struct SplashScreen: View {
     
     /// Variable Decarations.
     @State private var isActive: Bool = false
-    
     @State private var isLoggedIn: Bool = false
     
     var body: some View {
