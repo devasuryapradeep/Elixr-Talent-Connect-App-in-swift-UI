@@ -14,8 +14,9 @@ struct JobDisplayView: View {
     @StateObject var viewModelInstance =  JobDisplayViewModel()
     @State var textToSearch: String = ""
     @State var isPresented :Bool = false
+    @Binding var openSideMenu :Bool
     @State  private var selectedJob :Jobs = Jobs(id: "", title: "", department: "", postedDate: "", deadlineDate: "", description: "", responsibilities: "", requirements: "", location: "", salary: "", status: "" )
-
+    
     
     var body: some View {
         NavigationView(content: {
@@ -31,11 +32,25 @@ struct JobDisplayView: View {
             .onAppear {
                 viewModelInstance.fetchData()
             }
+            .toolbar(content: {
+                ToolbarItem (placement: .topBarLeading, content: {
+                    Button{
+                        openSideMenu.toggle()
+                    } label: {
+                        Image(systemName: "list.dash")
+                            .foregroundStyle(Color.black)
+                            .bold()
+                    }
+                })
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    LogoImage(logoName: "logo 1", width: 70, height: 70)
+                        .padding(.trailing,240)
+                }
+            })
             .alert(isPresented: $viewModelInstance.alertValue) {
                 Alert(title: Text("Alert"), message: Text("Sorry, can't connect at the moment. Please try again.")
                     .bold())
             }
-            navigationBarHidden(true)
         })
     }
     /// Heading view for the jobList view.
@@ -118,6 +133,6 @@ struct JobDisplayView: View {
 }
 
 #Preview {
-    JobDisplayView()
+    JobDisplayView( openSideMenu: .constant(false))
 }
 
