@@ -16,7 +16,7 @@ struct SplashScreen: View {
     var body: some View {
         if isActive {
             if isLoggedIn {
-                 MainTabbarView()
+                 HamburgerMenu()
             } else {
                 LoginView(isLogedIn: $isLoggedIn)
             }

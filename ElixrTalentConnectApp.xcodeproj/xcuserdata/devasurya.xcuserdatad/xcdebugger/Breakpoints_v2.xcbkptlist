@@ -306,17 +306,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E837E176-A253-44C0-9DC6-341EA13BE385"
+            uuid = "34391EAF-8769-4E7D-B62F-B9BC11DC0D8D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElixrTalentConnectApp/Login/LoginView/LoginView.swift"
+            filePath = "ElixrTalentConnectApp/JobDisplayView/View/HamburgerMenu.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "signUpPrompt"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "34391EAF-8769-4E7D-B62F-B9BC11DC0D8D - 4d44c21c32054b07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ElixrTalentConnectApp.HamburgerMenu.body.getter : some"
+                  moduleName = "ElixrTalentConnectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/FInal%20project/ElixrTalentConnectApp/JobDisplayView/View/HamburgerMenu.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "880">
+               </Location>
+               <Location
+                  uuid = "34391EAF-8769-4E7D-B62F-B9BC11DC0D8D - e4e433e8f3866335"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: SwiftUI.ToolbarContent, &#x3c4;_0_1: SwiftUI.ToolbarContent&gt;(&#x3c4;_0_0, &#x3c4;_0_1) -&gt; some&gt;&gt;.0 in ElixrTalentConnectApp.HamburgerMenu.body.getter : some"
+                  moduleName = "ElixrTalentConnectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/FInal%20project/ElixrTalentConnectApp/JobDisplayView/View/HamburgerMenu.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "772">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -35,6 +35,7 @@ struct JobDisplayView: View {
                 Alert(title: Text("Alert"), message: Text("Sorry, can't connect at the moment. Please try again.")
                     .bold())
             }
+            navigationBarHidden(true)
         })
     }
     /// Heading view for the jobList view.
